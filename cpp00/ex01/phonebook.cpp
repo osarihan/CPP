@@ -6,7 +6,7 @@
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 12:53:36 by osarihan          #+#    #+#             */
-/*   Updated: 2023/03/05 18:22:27 by osarihan         ###   ########.fr       */
+/*   Updated: 2023/03/05 18:39:22 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	ft_clear(Contact *c, int i){
 	return;
 }
 
-void	ft_print(Contact c, int i){
+void	ft_print(Contact c){
 	std::cout << c.name << std::endl;
 	std::cout << c.surname << std::endl;
 	std::cout << c.nickname << std::endl;
@@ -115,7 +115,7 @@ int main(void){
 			if (numbe > 7 || numbe == 0)
 				std::cout << "Error no such member!" << std::endl;	
 			else
-				ft_print(book.list[numbe - 1], numbe - 1);
+				ft_print(book.list[numbe - 1]);
 		}
 		else if (str == "EXIT"){
 			for (int i=0; i < 8; i++){

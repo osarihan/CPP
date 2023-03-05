@@ -6,7 +6,7 @@
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 12:55:01 by osarihan          #+#    #+#             */
-/*   Updated: 2023/03/05 18:24:14 by osarihan         ###   ########.fr       */
+/*   Updated: 2023/03/05 18:39:24 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ public:
 void 	printContact(Contact c, int i);
 int 	ft_add(std::string str, Contact *cnt, int i);
 void	ft_clear(Contact *c, int i);
-void	ft_print(Contact c, int i);
+void	ft_print(Contact c);
 
 #endif
