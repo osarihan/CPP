@@ -6,7 +6,7 @@
 /*   By: osarihan <osarihan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 12:53:36 by osarihan          #+#    #+#             */
-/*   Updated: 2023/03/05 17:58:10 by osarihan         ###   ########.fr       */
+/*   Updated: 2023/03/05 18:22:27 by osarihan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,11 +97,11 @@ int main(void){
 		getline(std::cin, str);
 		if (str == "ADD"){
 			if (ft_add(str, book.list, i) == 1){
-				std::cout << "creation successful" << std::endl;
+				std::cout << "creation successful!" << std::endl;
 				i++;
 			}
 			else{
-				std::cout << "fields cannot be empty" << std::endl;
+				std::cout << "fields cannot be empty!" << std::endl;
 				ft_clear(book.list, i);
 			}
 		}
@@ -112,10 +112,10 @@ int main(void){
 			std::cout << "Please type the number of contact you're trying to search" << std::endl;
 			getline(std::cin, search);
 			numbe = atoi(search.c_str());
-			if (numbe > 7)
-				std::cout << "Error" << std::endl;	
+			if (numbe > 7 || numbe == 0)
+				std::cout << "Error no such member!" << std::endl;	
 			else
-				ft_print(book.list[i - 1], i - 1);
+				ft_print(book.list[numbe - 1], numbe - 1);
 		}
 		else if (str == "EXIT"){
 			for (int i=0; i < 8; i++){
@@ -124,7 +124,7 @@ int main(void){
 			exit(0);
 		}
 		else{
-			std::cout << "invalid command please try again" << std::endl;
+			std::cout << "invalid command please try again!" << std::endl;
 		}
 	}
 }
