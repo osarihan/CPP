@@ -17,10 +17,9 @@
 #include "Zombie.hpp"
 
 Zombie*    Zombie::zombieHorde( int N, std::string name ){
-	// int i = 0;
-
-	// while (n > 0){
-	// 	Zombie Zombie;
-    //     n--;
-    // }
+    Zombie* horde = new Zombie[N];
+    for (int i=0; i < N; i++){
+        horde->name = name;
+    }
+    return (horde);
 }

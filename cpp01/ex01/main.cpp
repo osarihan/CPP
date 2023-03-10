@@ -17,5 +17,7 @@
 #include "Zombie.hpp"
 
 int main(void){
-	return 31;
+    Zombie *horde = NULL;
+	horde = horde->zombieHorde(10, "ouz");
+    std::cout << "basarili" << std::endl;
 }

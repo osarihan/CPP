@@ -26,6 +26,7 @@ class Zombie
 private:
 	std::string name;
 public:
+    Zombie* zombieHorde( int N, std::string name );
 	Zombie(std::string name);
 	~Zombie();
     void announce(Zombie *zombie1) {
@@ -34,6 +35,9 @@ public:
     std::string get_name() {
         return name;
     }
+    
+
+    Zombie(void);
 };
 
 #endif
