@@ -21,8 +21,7 @@
 
 #include <string>
 
-class Zombie
-{
+class Zombie{
 private:
 	std::string name;
 public:
@@ -35,7 +34,6 @@ public:
     std::string get_name() {
         return name;
     }
-    
 
     Zombie(void);
 };

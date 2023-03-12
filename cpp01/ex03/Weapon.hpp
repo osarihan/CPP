@@ -9,18 +9,32 @@
    \___/     \___|  \___/  /___|    |___/   /_/ \_\  |_|_\  |___|  |_||_|  /_/ \_\  |_|\_|  
 																							
 																							
-  file: main.cpp
-  date: 2023-03-09T20:44:37.268Z
+  file: Weapon.hpp
+  date: 2023-03-12T11:37:10.226Z
   mail: osarihan@student.42kocaeli.com.tr
  ********************************************************************************************/
 
-#include "Zombie.hpp"
-#include <unistd.h>
+#ifndef WEAPON_HPP
+#define WEAPON_HPP
 
-int main(void){
-    Zombie *horde = NULL;
-    int N=10;
-	horde = horde->zombieHorde(N, "ouz");
-    delete[] horde;
-    pause();
-}
+#include <iostream>
+
+class Weapon{
+private:
+	std::string type;
+public:
+    std::string name;
+    void setType(const std::string newType) {
+        this->type = newType;
+    }
+    const std::string& getType() const {
+        return this->type;
+    }
+    Weapon(void){};
+    Weapon(std::string name){
+        setType(name);
+    };
+	~Weapon(void){};
+};
+
+#endif

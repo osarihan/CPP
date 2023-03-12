@@ -10,17 +10,26 @@
 																							
 																							
   file: main.cpp
-  date: 2023-03-09T20:44:37.268Z
+  date: 2023-03-12T13:05:48.805Z
   mail: osarihan@student.42kocaeli.com.tr
  ********************************************************************************************/
 
-#include "Zombie.hpp"
-#include <unistd.h>
+#include <iostream>
 
 int main(void){
-    Zombie *horde = NULL;
-    int N=10;
-	horde = horde->zombieHorde(N, "ouz");
-    delete[] horde;
-    pause();
+	std::string asd = "HI THIS IS BRAIN";
+	std::string *stringptr = &asd;
+	std::string &stringREF = asd;
+
+	// memory addresses
+	std::cout << &asd << std::endl;
+	std::cout << stringptr << std::endl;
+	std::cout << &stringREF << std::endl;
+
+	// Values
+	std::cout << asd << std::endl;
+	std::cout << *stringptr << std::endl;
+	std::cout << stringREF << std::endl;
+	
+	return (0);
 }

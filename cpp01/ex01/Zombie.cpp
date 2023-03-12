@@ -18,9 +18,13 @@
 
 Zombie::Zombie(std::string name){
 	this->name = name;
-	std::cout << this->name << " READY FOR SOME BRAINS" << std::endl;
+	std::cout << this->name << " ;READY FOR SOME BRAINS" << std::endl;
 }
 
 Zombie::~Zombie(){
-	std::cout << this->name << " BRAIN GOT BOOM" << std::endl;
+	std::cout << this->name << ":  DEAD AGAIN" << std::endl;
+}
+
+Zombie::Zombie(void){
+    std::cout << "READY FOR SOME BRAINS" << std::endl;
 }

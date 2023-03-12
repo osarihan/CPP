@@ -9,18 +9,26 @@
    \___/     \___|  \___/  /___|    |___/   /_/ \_\  |_|_\  |___|  |_||_|  /_/ \_\  |_|\_|  
 																							
 																							
-  file: main.cpp
-  date: 2023-03-09T20:44:37.268Z
+  file: Harl.hpp
+  date: 2023-03-12T15:07:11.584Z
   mail: osarihan@student.42kocaeli.com.tr
  ********************************************************************************************/
 
-#include "Zombie.hpp"
-#include <unistd.h>
+#ifndef HARL_HPP
+#define HARL_HPP
 
-int main(void){
-    Zombie *horde = NULL;
-    int N=10;
-	horde = horde->zombieHorde(N, "ouz");
-    delete[] horde;
-    pause();
-}
+#include <iostream>
+
+class Harl{
+private:
+	void debug( void ){};
+	void info( void ){};
+	void warning( void ){};
+	void error( void ){};
+public:
+	void    complain( std::string level ){};
+	Harl(){};
+	~Harl(){};
+};
+
+#endif

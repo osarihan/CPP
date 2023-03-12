@@ -9,18 +9,28 @@
    \___/     \___|  \___/  /___|    |___/   /_/ \_\  |_|_\  |___|  |_||_|  /_/ \_\  |_|\_|  
 																							
 																							
-  file: main.cpp
-  date: 2023-03-09T20:44:37.268Z
+  file: HumanA.hpp
+  date: 2023-03-12T11:37:00.716Z
   mail: osarihan@student.42kocaeli.com.tr
  ********************************************************************************************/
 
-#include "Zombie.hpp"
-#include <unistd.h>
+#ifndef HUMANA_HPP
+#define HUMANA_HPP
 
-int main(void){
-    Zombie *horde = NULL;
-    int N=10;
-	horde = horde->zombieHorde(N, "ouz");
-    delete[] horde;
-    pause();
-}
+#include <iostream>
+#include "Weapon.hpp"
+
+class HumanA{
+public:
+	Weapon *weapon;
+	std::string name;
+	void attack(){
+		std::cout << name << " attacks with their" << weapon->getType() << std::endl;
+	}
+    HumanA(std::string name, Weapon &weapon);
+    ~HumanA(void);
+
+    HumanA(void);
+};
+
+#endif

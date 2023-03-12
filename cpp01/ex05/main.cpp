@@ -10,17 +10,27 @@
 																							
 																							
   file: main.cpp
-  date: 2023-03-09T20:44:37.268Z
+  date: 2023-03-12T15:07:15.708Z
   mail: osarihan@student.42kocaeli.com.tr
  ********************************************************************************************/
 
-#include "Zombie.hpp"
-#include <unistd.h>
+#include "Harl.hpp"
 
-int main(void){
-    Zombie *horde = NULL;
-    int N=10;
-	horde = horde->zombieHorde(N, "ouz");
-    delete[] horde;
-    pause();
+int main(int ac, char *av[]){
+	if ac == 2(){
+		Harl harl;
+		std::string complain = *av[1];
+		if (complain == "DEBUG"){
+
+		}
+		else if (complain == "INFO"){
+
+		}
+		else if (complain == "WARNING"){
+
+		}
+		else if (complain == "ERROR"){
+			
+		}
+	}
 }

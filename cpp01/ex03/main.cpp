@@ -1,4 +1,4 @@
-/********************************************************************************************
+    /********************************************************************************************
 	   )                        )     (                (      (         )                )  
    ( /(    (                ( /(     )\ )     (       )\ )   )\ )   ( /(     (       ( /(   
    )\())   )\ )        (    )\())   (()/(     )\     (()/(  (()/(   )\())    )\      )\())  
@@ -10,17 +10,29 @@
 																							
 																							
   file: main.cpp
-  date: 2023-03-09T20:44:37.268Z
+  date: 2023-03-12T11:37:06.415Z
   mail: osarihan@student.42kocaeli.com.tr
  ********************************************************************************************/
 
-#include "Zombie.hpp"
-#include <unistd.h>
+#include "Weapon.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
-int main(void){
-    Zombie *horde = NULL;
-    int N=10;
-	horde = horde->zombieHorde(N, "ouz");
-    delete[] horde;
-    pause();
+int main() {
+    {
+    Weapon club = Weapon("crude spiked club");
+    HumanA bob("Bob", club);
+    bob.attack();
+    club.setType("some other type of club"); 
+    bob.attack();
+    }
+    {
+    Weapon club = Weapon("crude spiked club");
+    HumanB jim("Jim");
+    jim.setWeapon(club);
+    jim.attack();
+    club.setType("some other type of club"); 
+    jim.attack();
+    }
+    return 0; 
 }
