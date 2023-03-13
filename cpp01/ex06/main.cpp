@@ -26,16 +26,16 @@ int decide(std::string std){
 	else if (std == "ERROR")
 		return(4);
 	else
-		return(42);
+		return(0);
 }
 
-int main(void){
+int main(int ac, char **av){
 	Harl harl;
-	harl.complain("DEBUG");
-	harl.complain("INFO");
-	harl.complain("WARNING");
-	harl.complain("ERROR");
-	harl.complain("a");
+	(void)ac;
+	if (av[1] == NULL)
+		return(0);
+	std::string asd = av[1];
+	harl.complain(asd);
 	return(0);
 
 }
