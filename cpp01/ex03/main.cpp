@@ -17,6 +17,7 @@
 #include "Weapon.hpp"
 #include "HumanA.hpp"
 #include "HumanB.hpp"
+#include <unistd.h> //for pause
 
 int main() {
     {
@@ -34,5 +35,6 @@ int main() {
     club.setType("some other type of club"); 
     jim.attack();
     }
+    //pause();
     return 0; 
 }

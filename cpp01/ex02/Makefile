@@ -1,7 +1,7 @@
 CPPFLAG = -Wall -Wextra -Werror -std=c++98
 SRC = *.cpp
 HDR = *.hpp
-NAME = weapon
+NAME = mem_val
 CC = c++
 
 all: $(NAME)

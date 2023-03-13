@@ -15,12 +15,12 @@
  ********************************************************************************************/
 
 #include "Zombie.hpp"
-#include <unistd.h>
+#include <unistd.h>// for pause
 
 int main(void){
     Zombie *horde = NULL;
     int N=10;
 	horde = horde->zombieHorde(N, "ouz");
     delete[] horde;
-    pause();
+    //pause();
 }
