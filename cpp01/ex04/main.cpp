@@ -26,7 +26,6 @@ int main(int ac, char *av[]){
 			std::cout << "error" << std::endl;
 			return 1;
 		}
-
 		std::ofstream outfile (filename + ".replace");
 		if (!outfile){
 			std::cout << "error" << std::endl;

@@ -59,9 +59,6 @@ public:
        //     return;
        // }
 		switch(decide(level)){
-            case 0:
-               std::cout << "[UNKNOWN] " << "I don't know how to complain at the " << level << " level." << std::endl;
-               return;
 			case 1:
                 pfn = &Harl::debug;
                 (this->*pfn)();
@@ -74,6 +71,10 @@ public:
 			case 4:
                 pfn = &Harl::error;
                 (this->*pfn)();
+                break;
+            case 5:
+               std::cout << "[UNKNOWN] " << "I don't know how to complain at the " << level << " level." << std::endl;
+               return;
 		}
     }
     Harl(){};

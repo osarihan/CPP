@@ -17,25 +17,22 @@
 #include "Harl.hpp"
 
 int decide(std::string std){
-	if (std == "DEBUG")
-		return(1);
-	else if (std == "INFO")
-		return(2);
-	else if (std == "WARNING")
-		return(3);
-	else if (std == "ERROR")
-		return(4);
-	else
-		return(42);
+	int i = 0;
+	std::string	s[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	while (i < 4 && s[i].compare(std) != 0){
+		i++;
+	}
+	return (i + 1);
 }
 
 int main(void){
 	Harl harl;
+	harl.complain("");
 	harl.complain("DEBUG");
 	harl.complain("INFO");
 	harl.complain("WARNING");
-	harl.complain("ERROR");
 	harl.complain("");
+	harl.complain("ERROR");
 	return(0);
 
 }

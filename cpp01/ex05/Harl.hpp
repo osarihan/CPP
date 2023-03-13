@@ -71,7 +71,7 @@ public:
 			case 4:
                 pfn = &Harl::error;
 				break;
-            case 42:
+            case 5:
                std::cout << "[UNKNOWN] " << "I don't know how to complain at the " << level << " level." << std::endl;
                return;
 		}
