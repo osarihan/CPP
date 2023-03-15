@@ -5,7 +5,7 @@
 
 class Fixed{
 private:
-
+	
 public:
 	Fixed(void);
 	Fixed(const int value);
