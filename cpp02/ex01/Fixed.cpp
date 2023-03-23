@@ -16,3 +16,21 @@
 
 #include "Fixed.hpp"
 
+//DEF CONST
+Fixed::Fixed(void){}
+
+Fixed::Fixed(const int value){
+
+}
+
+Fixed::Fixed(const float number){
+
+}
+
+float Fixed::toFloat(void){
+
+}
+
+int Fixed::toInt(void){
+
+}
