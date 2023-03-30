@@ -53,7 +53,7 @@ Fixed::Fixed(void){
 }
 
 Fixed::Fixed(const int value){
-    this->fixed_point = (value << 8);
+    this->fixed_point = (value << 8);	
 }
 
 Fixed::~Fixed(){

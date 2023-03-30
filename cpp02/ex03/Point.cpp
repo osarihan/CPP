@@ -20,62 +20,47 @@
 
 Point::~Point(void){}
 
-Point::Point(void){
-	this->x = 0;
-	this->y = 0;
+Point::Point(void) : x(Fixed(0)) , y(Fixed(0)){
+
 }
 
-Point::Point(float a, float b){
-	this->x = a;
-	this->y = b
+Point::Point(float a, float b) : x(Fixed(a)) , y(Fixed(b)){
+
 }
 
-// float dist(Point p1, Point p2){
-//     float dx = p1.x.toFloat() - p2.x.toFloat();
-//     float dy = p1.y.toFloat() - p2.y.toFloat();      
-//     return (sqrt(dx*dx + dy*dy));
-// }
+float Point::get_x()const{
+    return(this->x.toFloat());
+}
 
-// float tri_area(Point p1, Point p2, Point p3){
-//     float a = dist(p1, p2);
-//     float b = dist(p1, p3);
-//     float c = dist(p2, p3);
-//     float s = (a + b + c) / 2;
-//     return sqrt(s*(s-a)*(s-b)*(s-c));
-   
-// }
+float Point::get_y()const{
+    return(this->y.toFloat());   
+}
 
-// Point	&Point::operator=(Point &fixed)
-// {
-// 	this->x = 
-// 	return (*this);
-// }
+static float myAbs(float x) {
+    if (x < 0) {
+        return -x;
+    } else {
+        return x;
+    }
+}
 
-bool bsp( Point const x4, Point const x3, Point const x2, Point const x1){
-    // float a1 = tri_area(p1, p2, p3);
-    // float a2 = tri_area(p1, p2, p4);
-    // float a3 = tri_area(p1, p3, p4);
-    // float a4 = tri_area(p2, p3, p4);
-    // float total = a1 + a2 + a3 + a4;
-    // if (totalArea == a1 || totalArea == a2 || totalArea == a3 || totalArea == a4) {
-    //     return 0;
-    // } else {
-    //     return -1;
+bool	bsp(Point const a, Point const b, Point const c, Point const point)
+{
+    // //KENAR
+    // float epsilon = 1e-5;
+    // if (myAbs((c.get_x() - b.get_y()) * a.get_x() - (c.get_x() - b.get_x()) * a.get_y() + c.get_x() * b.get_y() - c.get_y() * b.get_x()) < epsilon ||
+    //     myAbs((point.get_y() - c.get_y()) * a.get_x() - (point.get_x() - c.get_x()) * a.get_y() + point.get_x() * c.get_y() - point.get_y() * c.get_x()) < epsilon ||
+    //     myAbs((b.get_y() - point.get_y()) * a.get_x() - (b.get_x() - point.get_x()) * a.get_y() + b.get_x() * point.get_y() - b.get_y() * point.get_x()) < epsilon) {
+    //     std::cout << "kenarda" << std::endl;
+    //     return false;
     // }
-    float d1, d2, d3;
-    bool neg, pos;
 
-    d1 = (x4.x.toFloat() - x2.x.toFloat()) * (x1.y.toFloat() - x2.y.toFloat()) \
-        * (x1.x.toFloat() - x2.x.toFloat()) * (x4.y.toFloat() - x2.y.toFloat());
-    
-    d2 = (x4.x.toFloat() - x3.x.toFloat()) * (x2.y.toFloat() - x3.y.toFloat()) \
-        * (x2.x.toFloat() - x3.x.toFloat()) * (x4.y.toFloat() - x3.y.toFloat()); 
-
-    d3 = (x4.x.toFloat() - x1.x.toFloat()) * (x3.y.toFloat() - x1.y.toFloat()) \
-        * (x3.x.toFloat() - x1.x.toFloat()) * (x4.y.toFloat() - x1.y.toFloat());
-
-    neg = (d1 < 0) || (d2 < 0) || (d3 < 0);
-    pos = (d1 > 0) || (d2 > 0) || (d3 > 0);  
-
-    return !(neg && pos); 
+	float d1 = ((point.get_x() - b.get_x()) * (a.get_y() - b.get_y()) - (a.get_x()- b.get_x()) * (point.get_y() - b.get_y()));
+	float d2 = ((point.get_x() - c.get_x()) * (b.get_y() - c.get_y()) - (b.get_x()- c.get_x()) * (point.get_y() - c.get_y()));
+	float d3 = ((point.get_x() - a.get_x()) * (c.get_y() - a.get_y()) - (c.get_x()- a.get_x()) * (point.get_y() - a.get_y()));
+	
+	bool has_neg = (d1 < 0) || (d2 < 0) || (d3 < 0);
+	bool has_pos = (d1 > 0) || (d2 > 0) || (d3 > 0);
+	
+	return (!(has_neg && has_pos));
 }

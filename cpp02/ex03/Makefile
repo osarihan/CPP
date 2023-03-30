@@ -1,4 +1,4 @@
-CPPFLAG = -Wall -Wextra -Werror -std=c++98
+CPPFLAG = -std=c++98
 SRC = *.cpp
 HDR = *.hpp
 NAME = fixed

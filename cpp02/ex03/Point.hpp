@@ -26,11 +26,11 @@ private:
 public:
 	Point(void);
 	Point(float a, float b);
+    float get_x() const;
+    float get_y() const;
 	~Point(void);
 	Point	&operator=( const Point &point );   
-	//float is_in(Point p1, Point p2, Point p3, Point p4);
 };
-//float dist(Point p1, Point p2);
-//float tri_area(Point p1, Point p2, Point p3);
+
 bool bsp( Point const a, Point const b, Point const c, Point const point);
 #endif
