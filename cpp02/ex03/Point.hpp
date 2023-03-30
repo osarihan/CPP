@@ -9,27 +9,28 @@
    \___/     \___|  \___/  /___|    |___/   /_/ \_\  |_|_\  |___|  |_||_|  /_/ \_\  |_|\_|  
 																							
 																							
-  file: Fixed.hpp
-  date: 2023-03-15T11:58:57.629Z
+  file: Point.hpp
+  date: 2023-03-29T23:02:32.545Z
   mail: osarihan@student.42kocaeli.com.tr
  ********************************************************************************************/
 
-#ifndef FIXED_HPP
-#define FIXED_HPP
+#ifndef POINT_HPP
+#define POINT_HPP
 
-#include <iostream>
+#include "Fixed.hpp"
 
-class Fixed{
+class	Point{
 private:
-	int fixed_point;
-	static const int frac_bits = 8;
+	Fixed const x;
+	Fixed const y;
 public:
-	Fixed();
-	~Fixed();
-	Fixed(const Fixed &obj);
-	int getRawBits( void ) const;	
-	void setRawBits( int const raw );
+	Point(void);
+	Point(float a, float b);
+	~Point(void);
+	Point	&operator=( const Point &point );   
+	//float is_in(Point p1, Point p2, Point p3, Point p4);
 };
-Fixed& operator=(const Fixed& obj);
-
+//float dist(Point p1, Point p2);
+//float tri_area(Point p1, Point p2, Point p3);
+bool bsp( Point const a, Point const b, Point const c, Point const point);
 #endif

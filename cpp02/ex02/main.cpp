@@ -9,27 +9,24 @@
    \___/     \___|  \___/  /___|    |___/   /_/ \_\  |_|_\  |___|  |_||_|  /_/ \_\  |_|\_|  
 																							
 																							
-  file: Fixed.hpp
-  date: 2023-03-15T11:58:57.629Z
+  file: main.cpp
+  date: 2023-03-15T14:57:26.026Z
   mail: osarihan@student.42kocaeli.com.tr
  ********************************************************************************************/
 
-#ifndef FIXED_HPP
-#define FIXED_HPP
-
+#include "Fixed.hpp"
 #include <iostream>
 
-class Fixed{
-private:
-	int fixed_point;
-	static const int frac_bits = 8;
-public:
-	Fixed();
-	~Fixed();
-	Fixed(const Fixed &obj);
-	int getRawBits( void ) const;	
-	void setRawBits( int const raw );
-};
-Fixed& operator=(const Fixed& obj);
+#include <cmath>
 
-#endif
+int main( void ) { Fixed a;
+	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	std::cout << Fixed::max( a, b ) << std::endl;
+	return 0; 
+}

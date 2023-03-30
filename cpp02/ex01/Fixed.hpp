@@ -6,7 +6,7 @@
 class Fixed{
 private:
 	int fixed_point;
-	int frac_bits = 8;
+	static const int frac_bits = 8;
 public:
 	Fixed(void);
 	Fixed(const int value);
@@ -14,9 +14,10 @@ public:
 	~Fixed();
 	float toFloat( void ) const;
 	int toInt( void ) const;
-
+	int getRawBits( void ) const;	
+	void setRawBits( int const raw );
 };
 
-Fixed& operator<<(const Fixed& obj);
+std::ostream &operator<<(std::ostream &out, const Fixed &obj);
 
 #endif
