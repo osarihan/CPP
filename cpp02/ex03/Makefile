@@ -1,5 +1,5 @@
-CPPFLAG = -std=c++98
-SRC = *.cpp
+CPPFLAG = -Wall -Wextra -Werror -std=c++98
+SRCS = *.cpp
 HDR = *.hpp
 NAME = fixed
 CC = c++
@@ -7,7 +7,7 @@ CC = c++
 all: $(NAME)
 
 $(NAME): $(SRCS) $(HDR)
-	@$(CC) $(CPPFLAG) $(SRC) -o $(NAME)
+	@$(CC) $(CPPFLAG) $(SRCS) -o $(NAME)
 	@echo compiled!
 clean:
 	@echo cleaned

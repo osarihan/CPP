@@ -29,7 +29,7 @@ public:
 	Fixed(const Fixed &obj);
 	int getRawBits( void ) const;	
 	void setRawBits( int const raw );
+    Fixed& operator=(const Fixed& obj);
 };
-Fixed& operator=(const Fixed& obj);
 
 #endif

@@ -32,6 +32,12 @@ Fixed	Fixed::min(Fixed &fixed1, Fixed &fixed2)
 	return (Fixed( fixed1 ));
 }
 
+//Copy Constructor
+Fixed::Fixed(const Fixed &obj) {
+	//std::cout << "copy constructor called" << std::endl;
+	*this = obj;
+}
+
 Fixed	Fixed::max( const Fixed &fixed1, const Fixed &fixed2)
 {
 	if (fixed1 >= fixed2)
@@ -48,18 +54,21 @@ Fixed	Fixed::max(Fixed &fixed1, Fixed &fixed2)
 
 //
 Fixed::Fixed(void){
+	//std::cout << "Default constructor called" << std::endl;
     this->fixed_point = 0;
 }
 
 Fixed::Fixed(const int value){
+	//std::cout << "Int constructor called" << std::endl;
     this->fixed_point = (value << 8);
 }
 
 Fixed::~Fixed(){
-    //std::cout << "DEST" << std::endl;
+	//std::cout << "Destructor called" << std::endl;
 }
 
 Fixed::Fixed(const float number){
+	//std::cout << "Float constructor called" << std::endl;
     this->fixed_point = (int)roundf(number * (1 << frac_bits));
 }
 
@@ -78,7 +87,7 @@ int Fixed::toInt(void) const{
 }
 
 int Fixed::getRawBits() const{
-	std::cout << "member funtion called" << std::endl;
+	//std::cout << "member funtion called" << std::endl;
 	return (this->fixed_point);
 }
 

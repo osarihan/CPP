@@ -36,31 +36,49 @@ float Point::get_y()const{
     return(this->y.toFloat());   
 }
 
-static float myAbs(float x) {
-    if (x < 0) {
-        return -x;
+int my_max(int x, int y) {
+    if (x > y) {
+        return x;
+    } else {
+        return y;
+    }
+}
+
+int my_min(int x, int y) {
+    if (x > y) {
+        return y;
     } else {
         return x;
     }
 }
 
+bool isOnEdge(Point a, Point b, Point c, Point point)
+{
+    if ((point.get_x() == a.get_x() && point.get_y() == a.get_y()) || (point.get_x() == b.get_x() && point.get_y() == b.get_y()) || (point.get_x() == c.get_x() && point.get_y() == c.get_y()))
+        return true;
+    if ((point.get_x() >= my_min(a.get_x(), b.get_x()) && point.get_x() <= my_max(a.get_x(), b.get_x()) && point.get_y() >= my_min(a.get_y(), b.get_y()) && point.get_y() <= my_max(a.get_y(), b.get_y())) || 
+        (point.get_x() >= my_min(a.get_x(), c.get_x()) && point.get_x() <= my_max(a.get_x(), c.get_x()) && point.get_y() >= my_min(a.get_y(), c.get_y()) && point.get_y() <= my_max(a.get_y(), c.get_y())) || 
+        (point.get_x() >= my_min(b.get_x(), c.get_x()) && point.get_x() <= my_max(b.get_x(), c.get_x()) && point.get_y() >= my_min(b.get_y(), c.get_y()) && point.get_y() <= my_max(b.get_y(), c.get_y())))
+        return true;
+    else
+        return false;
+}
+
 bool	bsp(Point const a, Point const b, Point const c, Point const point)
 {
-    // //KENAR
-    // float epsilon = 1e-5;
-    // if (myAbs((c.get_x() - b.get_y()) * a.get_x() - (c.get_x() - b.get_x()) * a.get_y() + c.get_x() * b.get_y() - c.get_y() * b.get_x()) < epsilon ||
-    //     myAbs((point.get_y() - c.get_y()) * a.get_x() - (point.get_x() - c.get_x()) * a.get_y() + point.get_x() * c.get_y() - point.get_y() * c.get_x()) < epsilon ||
-    //     myAbs((b.get_y() - point.get_y()) * a.get_x() - (b.get_x() - point.get_x()) * a.get_y() + b.get_x() * point.get_y() - b.get_y() * point.get_x()) < epsilon) {
-    //     std::cout << "kenarda" << std::endl;
-    //     return false;
-    // }
-
-	float d1 = ((point.get_x() - b.get_x()) * (a.get_y() - b.get_y()) - (a.get_x()- b.get_x()) * (point.get_y() - b.get_y()));
-	float d2 = ((point.get_x() - c.get_x()) * (b.get_y() - c.get_y()) - (b.get_x()- c.get_x()) * (point.get_y() - c.get_y()));
+    //KENAR KONTROL
+    if (isOnEdge(a, b, c, point) == true){   
+        std::cout << "kenarda" << std::endl;
+        return (0);
+    }
+    //ICINDE MI DEGIL MI
+	float d1 = ((point.get_x() - b.get_x()) * (a.get_y() - b.get_y()) - (a.get_x()- b.get_x()) * (point.get_y() - b.get_y())); //ucgen point, a ve b
+	float d2 = ((point.get_x() - c.get_x()) * (b.get_y() - c.get_y()) - (b.get_x()- c.get_x()) * (point.get_y() - c.get_y())); //ucgen point, b ve c
 	float d3 = ((point.get_x() - a.get_x()) * (c.get_y() - a.get_y()) - (c.get_x()- a.get_x()) * (point.get_y() - a.get_y()));
 	
 	bool has_neg = (d1 < 0) || (d2 < 0) || (d3 < 0);
 	bool has_pos = (d1 > 0) || (d2 > 0) || (d3 > 0);
 	
 	return (!(has_neg && has_pos));
+   // return 1;
 }

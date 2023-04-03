@@ -18,41 +18,34 @@
 
 //Default Constructor
 Fixed::Fixed(){
+	std::cout << "Default constructor called" << std::endl;
 	this->fixed_point = 0;
 }
 
 //Default Destrutor
 Fixed::~Fixed(){
-	std::cout << "Destructor called" << std::endl;;
+	std::cout << "Destructor called" << std::endl;
 }
 
 //Copy Constructor
 Fixed::Fixed(const Fixed &obj) {
-	this->fixed_point = obj.fixed_point;
+	std::cout << "copy constructor called" << std::endl;
+	*this = obj;
 }
 
 //Operator
 Fixed& Fixed::operator=(const Fixed& other) {
-    fixed_point = other.fixed_point;
+	std::cout << "Copy assignment operator called" << std::endl;
+    fixed_point = other.getRawBits();
     return *this;
 }
 
 int Fixed::getRawBits() const{
-	std::cout << "member funtion called" << std::endl;
+	std::cout << "getRawBits member funtion called" << std::endl;
 	return (this->fixed_point);
 }
 
 void Fixed::setRawBits(int const raw){
+	std::cout << "setRawBits member funtion called" << std::endl;
 	this->fixed_point = raw;
 }
-
-
-// TEST MAIN
-// int main( void ) {
-//   	Fixed a;
-//   	Fixed b( a );
-//   	Fixed c;
-// 	c = b;
-// 	std::cout << a.getRawBits() << std::endl; std::cout << b.getRawBits() << std::endl; std::cout << c.getRawBits() << std::endl;
-// 	return 0; 
-// }

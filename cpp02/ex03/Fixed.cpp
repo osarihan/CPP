@@ -56,6 +56,12 @@ Fixed::Fixed(const int value){
     this->fixed_point = (value << 8);	
 }
 
+//Copy Constructor
+Fixed::Fixed(const Fixed &obj) {
+	//std::cout << "copy constructor called" << std::endl;
+	*this = obj;
+}
+
 Fixed::~Fixed(){
     //std::cout << "DEST" << std::endl;
 }
@@ -79,7 +85,7 @@ int Fixed::toInt(void) const{
 }
 
 int Fixed::getRawBits() const{
-	std::cout << "member funtion called" << std::endl;
+	//std::cout << "member funtion called" << std::endl;
 	return (this->fixed_point);
 }
 

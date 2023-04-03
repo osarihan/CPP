@@ -11,6 +11,7 @@ public:
 	Fixed(void);
 	Fixed(const int value);
 	Fixed(const float number);
+	Fixed(const Fixed &obj);
 	~Fixed();
 	float toFloat( void ) const;
 	int toInt( void ) const;

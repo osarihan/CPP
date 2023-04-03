@@ -40,21 +40,37 @@ Böylece, 5 sayısını Q3.4 sabit noktalı formata dönüştürmek için gereke
 
 //DEF CONST
 Fixed::Fixed(void){
+	std::cout << "Default constructor called" << std::endl;
     this->fixed_point = 0;
 }
 //takes an integer and converts it to a fixed-point value.
 Fixed::Fixed(const int value){
+	std::cout << "Int constructor called" << std::endl;
     this->fixed_point = (value << 8);
     //std::cout << this->fixed_point << std::endl;
 }
 
+//COPY ASS OP
+Fixed& Fixed::operator=(const Fixed& other) {
+	std::cout << "Copy assignment operator called" << std::endl;
+    fixed_point = other.getRawBits();
+    return *this;
+}
+
+//Copy Constructor
+Fixed::Fixed(const Fixed &obj) {
+	std::cout << "copy constructor called" << std::endl;
+	*this = obj;
+}
+
 // DEF DES
 Fixed::~Fixed(){
-    std::cout << "DEST" << std::endl;
+	std::cout << "Destructor called" << std::endl;
 }
 
 Fixed::Fixed(const float number){
     this->fixed_point = (int)roundf(number * (1 << frac_bits));
+	std::cout << "Float constructor called" << std::endl;
     //std::cout << this->fixed_point << std::endl;
 }
 
@@ -84,7 +100,7 @@ int Fixed::toInt(void) const{
 }
 
 int Fixed::getRawBits() const{
-	std::cout << "member funtion called" << std::endl;
+	//std::cout << "member funtion called" << std::endl;
 	return (this->fixed_point);
 }
 

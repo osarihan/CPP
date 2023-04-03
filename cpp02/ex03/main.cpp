@@ -20,8 +20,8 @@
 
 int main(void){
     Point p1(0.0f, 0.0f);
-    Point p2(0.0f, 10.0f);
-    Point p3(10.0f, 0.0f);
+    Point p2(10.0f, 0.0f);
+    Point p3(0.0f, 10.0f);
     Point p4(4.0f, 6.0f);
 
     bool is_inside = bsp(p1, p2, p3, p4);

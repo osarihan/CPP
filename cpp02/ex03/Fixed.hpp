@@ -5,12 +5,13 @@
 
 class Fixed{
 private:
-	static const int frac_bits = 8;
 	int fixed_point;
+	static const int frac_bits = 8;
 public:
 	Fixed(void);
 	Fixed(const int value);
 	Fixed(const float number);
+	Fixed(const Fixed &obj);
 	~Fixed();
 	float toFloat( void ) const;
 	int toInt( void ) const;
