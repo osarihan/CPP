@@ -54,21 +54,34 @@ int my_min(int x, int y) {
 
 bool isOnEdge(Point a, Point b, Point c, Point point)
 {
-    if ((point.get_x() == a.get_x() && point.get_y() == a.get_y()) || (point.get_x() == b.get_x() && point.get_y() == b.get_y()) || (point.get_x() == c.get_x() && point.get_y() == c.get_y()))
-        return true;
-    if ((point.get_x() >= my_min(a.get_x(), b.get_x()) && point.get_x() <= my_max(a.get_x(), b.get_x()) && point.get_y() >= my_min(a.get_y(), b.get_y()) && point.get_y() <= my_max(a.get_y(), b.get_y())) || 
-        (point.get_x() >= my_min(a.get_x(), c.get_x()) && point.get_x() <= my_max(a.get_x(), c.get_x()) && point.get_y() >= my_min(a.get_y(), c.get_y()) && point.get_y() <= my_max(a.get_y(), c.get_y())) || 
-        (point.get_x() >= my_min(b.get_x(), c.get_x()) && point.get_x() <= my_max(b.get_x(), c.get_x()) && point.get_y() >= my_min(b.get_y(), c.get_y()) && point.get_y() <= my_max(b.get_y(), c.get_y())))
-        return true;
-    else
+    // Check if point is collinear with edge (a, b)
+    float d1 = (point.get_x() - a.get_x()) * (b.get_y() - a.get_y()) - (b.get_x() - a.get_x()) * (point.get_y() - a.get_y());
+    if (d1 == 0 && point.get_x() >= my_min(a.get_x(), b.get_x()) && point.get_x() <= my_max(a.get_x(), b.get_x()) && point.get_y() >= my_min(a.get_y(), b.get_y()) && point.get_y() <= my_max(a.get_y(), b.get_y())){
+
+        std::cout << "kenarda" << std::endl;
         return false;
+    }
+    // Check if point is collinear with edge (b, c)
+    float d2 = (point.get_x() - b.get_x()) * (c.get_y() - b.get_y()) - (c.get_x() - b.get_x()) * (point.get_y() - b.get_y());
+    if (d2 == 0 && point.get_x() >= my_min(b.get_x(), c.get_x()) && point.get_x() <= my_max(b.get_x(), c.get_x()) && point.get_y() >= my_min(b.get_y(), c.get_y()) && point.get_y() <= my_max(b.get_y(), c.get_y())){
+
+        std::cout << "kenarda" << std::endl;
+        return false;
+    }
+    // Check if point is collinear with edge (c, a)
+    float d3 = (point.get_x() - c.get_x()) * (a.get_y() - c.get_y()) - (a.get_x() - c.get_x()) * (point.get_y() - c.get_y());
+    if (d3 == 0 && point.get_x() >= my_min(a.get_x(), c.get_x()) && point.get_x() <= my_max(a.get_x(), c.get_x()) && point.get_y() >= my_min(a.get_y(), c.get_y()) && point.get_y() <= my_max(a.get_y(), c.get_y())){
+
+        std::cout << "kenarda" << std::endl;
+        return false;
+    }
+    return true;
 }
 
 bool	bsp(Point const a, Point const b, Point const c, Point const point)
 {
     //KENAR KONTROL
-    if (isOnEdge(a, b, c, point) == true){   
-        std::cout << "kenarda" << std::endl;
+    if (isOnEdge(a, b, c, point) == false){   
         return (0);
     }
     //ICINDE MI DEGIL MI
@@ -80,5 +93,4 @@ bool	bsp(Point const a, Point const b, Point const c, Point const point)
 	bool has_pos = (d1 > 0) || (d2 > 0) || (d3 > 0);
 	
 	return (!(has_neg && has_pos));
-   // return 1;
 }

@@ -1,7 +1,7 @@
 CPPFLAG = -Wall -Wextra -Werror -std=c++98
 SRCS = *.cpp
 HDR = *.hpp
-NAME = fixed
+NAME = triangle
 CC = c++
 
 all: $(NAME)
