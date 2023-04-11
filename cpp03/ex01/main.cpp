@@ -1,27 +1,19 @@
-/********************************************************************************************
-	   )                        )     (                (      (         )                )  
-   ( /(    (                ( /(     )\ )     (       )\ )   )\ )   ( /(     (       ( /(   
-   )\())   )\ )        (    )\())   (()/(     )\     (()/(  (()/(   )\())    )\      )\())  
-  ((_)\   (()/(        )\  ((_)\     /(_)) ((((_)(    /(_))  /(_)) ((_)\  ((((_)(   ((_)    
-   ((_)    /(_))_   _ ((_)  _((_)   (_))    )\ _ )\  (_))   (_))    _((_)  )\ _ )\   _((_)  
-   / _ \  (_)) __| | | | | |_  /    / __|   (_)_\(_) | _ \  |_ _|  | || |  (_)_\(_) | \| |  
-  | (_) |   | (_ | | |_| |  / /     \__ \    / _ \   |   /   | |   | __ |   / _ \   | .` |  
-   \___/     \___|  \___/  /___|    |___/   /_/ \_\  |_|_\  |___|  |_||_|  /_/ \_\  |_|\_|  
-																							
-																							
-  file: main.cpp
-  date: 2023-04-06T19:24:31.048Z
-  mail: osarihan@student.42kocaeli.com.tr
- ********************************************************************************************/
-
 #include "ScavTrap.hpp"
+
+/*
+C++ dilinde, türetilmiş sınıfların oluşturulması ve yok edilmesi sırasında, önce temel sınıfın yapıcı (constructor) ve yıkıcı (destructor) fonksiyonları çağrılır. Bunun nedeni, türetilmiş sınıfın özelliklerinin temel sınıfın özelliklerine dayanmasıdır. Dolayısıyla, önce temel sınıfın yapıcı fonksiyonu çağrılarak temel sınıfın özellikleri tanımlanır, ardından türetilmiş sınıfın yapıcı fonksiyonu çağrılarak türetilmiş sınıfın özellikleri tanımlanır.
+
+Ancak, nesne ömrü sona erdiğinde (bir nesne bellekten serbest bırakıldığında) yıkıcı fonksiyonların çağrılması sırasında işler biraz farklıdır. C++ dilinde, yıkıcı fonksiyonlar türetilmiş sınıftan başlayarak çağrılır ve ardından temel sınıfın yıkıcı fonksiyonu çağrılır. Bu sıra, nesnenin bellekten serbest bırakılması sırasında, türetilmiş sınıfın özelliklerinin önce yok edilmesi ve ardından temel sınıfın özelliklerinin yok edilmesi gerektiği gerçeğinden kaynaklanır.
+
+Bu nedenle, nesne ömrü boyunca, türetilmiş sınıfın yapıcı fonksiyonu çağrıldıktan sonra, bellekten serbest bırakıldığında önce temel sınıfın yıkıcı fonksiyonu çağrılır ve ardından türetilmiş sınıfın yıkıcı fonksiyonu çağrılır. Bu şekilde, bellek sızıntıları önlenir ve bellek yönetimi doğru şekilde yapılır.
+*/
 
 int	main()
 {
 	ScavTrap a;
-	ScavTrap b("Alfonso");
+	ScavTrap b("ouz");
 	ScavTrap c(b);
-	ScavTrap d("Yo");
+	ScavTrap d("ey");
 
 	a = d;
 
@@ -29,6 +21,5 @@ int	main()
 	std::cout << "Hp: " << b.getHp() << " Ep: " << b.getEp() << " Ad: " << b.getAd() << " Name: " << b.getName() << std::endl;
 	std::cout << "Hp: " << c.getHp() << " Ep: " << c.getEp() << " Ad: " << c.getAd() << " Name: " << c.getName() << std::endl;
 	std::cout << "Hp: " << d.getHp() << " Ep: " << d.getEp() << " Ad: " << d.getAd() << " Name: " << d.getName() << std::endl;
-	//std::cout << b.name << std::endl;
 	return 0;
 }

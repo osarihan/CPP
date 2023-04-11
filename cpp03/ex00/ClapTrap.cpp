@@ -17,31 +17,31 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(){
-	std::cout << "default constructor called" << std::endl;
+    std::cout << "ClapTrap Default constructor called" << std::endl;
     this->hit_points = 10;
     this->en_points = 10;
     this->att_dmg = 0;
 }
 
 ClapTrap::ClapTrap(std::string name){
-	std::cout << "constructor called" << std::endl;
+    std::cout << "ClapTrap Name constructor called" << std::endl;
     this->name = name;
     this->hit_points = 10;
     this->en_points = 10;
     this->att_dmg = 0;
 }
 
-
 ClapTrap::~ClapTrap(){
-	std::cout << "destructor called" << std::endl;
+	std::cout << "ClapTrap destructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap& obj){
-	std::cout << "copy const called" << std::endl;
+    std::cout << "ClapTrap Copy constructor called" << std::endl;
     *this = obj;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& src){
+    std::cout << "ClapTrap Copy assignment operator called" << std::endl;
     this->att_dmg = src.att_dmg;
     this->en_points = src.en_points;
     this->name = src.name;
