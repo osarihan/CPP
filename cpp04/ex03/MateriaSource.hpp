@@ -9,27 +9,30 @@
    \___/     \___|  \___/  /___|    |___/   /_/ \_\  |_|_\  |___|  |_||_|  /_/ \_\  |_|\_|  
 																							
 																							
-  file: Dog.hpp
-  date: 2023-04-13T20:36:58.837Z
+  file: MateriaSource.hpp
+  date: 2023-04-13T23:54:07.573Z
   mail: osarihan@student.42kocaeli.com.tr
  ********************************************************************************************/
 
-#ifndef	DOG_HPP
-# define DOG_HPP
+#ifndef	MATERIASOURCE_HPP
+# define MATERIASOURCE_HPP
 
-# include "Animal.hpp"
-# include "Brain.hpp"
+#include "IMateriaSource.hpp"
 
-class Dog: public Animal
+class MateriaSource: public	IMateriaSource
 {
 private:
-	Brain	*brain;
+	AMateria	*_inventory[4];
 public:
-	Dog( void );
-	Dog ( const Dog &dog );
-	Dog	&operator=( const Dog &dog );
-	~Dog();
-	void		makeSound( void ) const;
+	MateriaSource( void );
+	MateriaSource( const MateriaSource &m );
+
+	MateriaSource	&operator=( const MateriaSource &m );
+
+	void		learnMateria(AMateria*);
+	AMateria*	createMateria( std::string const &type);
+
+	~MateriaSource();
 };
 
 #endif

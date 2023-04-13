@@ -9,27 +9,36 @@
    \___/     \___|  \___/  /___|    |___/   /_/ \_\  |_|_\  |___|  |_||_|  /_/ \_\  |_|\_|  
 																							
 																							
-  file: Dog.hpp
-  date: 2023-04-13T20:36:58.837Z
+  file: Character.hpp
+  date: 2023-04-13T23:53:27.394Z
   mail: osarihan@student.42kocaeli.com.tr
  ********************************************************************************************/
 
-#ifndef	DOG_HPP
-# define DOG_HPP
+#ifndef	CHARACTER_HPP
+# define CHARACTER_HPP
 
-# include "Animal.hpp"
-# include "Brain.hpp"
+#include "ICharacter.hpp"
+#include "AMateria.hpp"
 
-class Dog: public Animal
+class Character: public	ICharacter
 {
 private:
-	Brain	*brain;
+	AMateria	*_inventory[4];
+	std::string	_name;
 public:
-	Dog( void );
-	Dog ( const Dog &dog );
-	Dog	&operator=( const Dog &dog );
-	~Dog();
-	void		makeSound( void ) const;
+	Character( void );
+	Character( const std::string name );
+	Character( const Character &c );
+
+	Character	&operator=( const Character &c );
+
+	std::string	const	&getName( void );
+	void				equip( AMateria	*m );
+	void				unequip( int	idx );
+	void				use( int idx, ICharacter	&target );
+	
+	virtual	~Character();
 };
+
 
 #endif

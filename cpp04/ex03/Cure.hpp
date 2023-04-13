@@ -9,27 +9,28 @@
    \___/     \___|  \___/  /___|    |___/   /_/ \_\  |_|_\  |___|  |_||_|  /_/ \_\  |_|\_|  
 																							
 																							
-  file: Dog.hpp
-  date: 2023-04-13T20:36:58.837Z
+  file: Cure.hpp
+  date: 2023-04-13T23:53:33.248Z
   mail: osarihan@student.42kocaeli.com.tr
  ********************************************************************************************/
 
-#ifndef	DOG_HPP
-# define DOG_HPP
+#ifndef	CURE_HPP
+# define	CURE_HPP
 
-# include "Animal.hpp"
-# include "Brain.hpp"
+# include "AMateria.hpp"
 
-class Dog: public Animal
+class Cure: public AMateria
 {
-private:
-	Brain	*brain;
 public:
-	Dog( void );
-	Dog ( const Dog &dog );
-	Dog	&operator=( const Dog &dog );
-	~Dog();
-	void		makeSound( void ) const;
+	Cure( void );
+	Cure( const Cure &c );
+
+	Cure	&operator=( const Cure &c );
+
+	AMateria	*clone( void ) const;
+	void		use( ICharacter &target );
+
+	~Cure();
 };
 
 #endif

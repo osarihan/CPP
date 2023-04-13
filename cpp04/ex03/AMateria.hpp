@@ -9,27 +9,35 @@
    \___/     \___|  \___/  /___|    |___/   /_/ \_\  |_|_\  |___|  |_||_|  /_/ \_\  |_|\_|  
 																							
 																							
-  file: Dog.hpp
-  date: 2023-04-13T20:36:58.837Z
+  file: AMateria.hpp
+  date: 2023-04-13T20:54:56.183Z
   mail: osarihan@student.42kocaeli.com.tr
  ********************************************************************************************/
 
-#ifndef	DOG_HPP
-# define DOG_HPP
+#ifndef	AMATERIA_HPP
+# define AMATERIA_HPP
 
-# include "Animal.hpp"
-# include "Brain.hpp"
+# include "ICharacter.hpp"
 
-class Dog: public Animal
+class ICharacter;
+
+class AMateria
 {
-private:
-	Brain	*brain;
+protected:
+	std::string	_type;
 public:
-	Dog( void );
-	Dog ( const Dog &dog );
-	Dog	&operator=( const Dog &dog );
-	~Dog();
-	void		makeSound( void ) const;
+	AMateria( void );
+	AMateria( std::string &type );
+	AMateria( const AMateria &a );
+
+	AMateria	&operator=( const AMateria &a );
+
+	std::string const	&getType( void ) const;
+
+	virtual	AMateria	*clone( void ) const = 0;
+	virtual	void		use( ICharacter &target );
+
+	virtual	~AMateria();
 };
 
 #endif

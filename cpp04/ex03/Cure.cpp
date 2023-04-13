@@ -9,27 +9,42 @@
    \___/     \___|  \___/  /___|    |___/   /_/ \_\  |_|_\  |___|  |_||_|  /_/ \_\  |_|\_|  
 																							
 																							
-  file: Dog.hpp
-  date: 2023-04-13T20:36:58.837Z
+  file: Cure.cpp
+  date: 2023-04-13T23:53:29.991Z
   mail: osarihan@student.42kocaeli.com.tr
  ********************************************************************************************/
 
-#ifndef	DOG_HPP
-# define DOG_HPP
+#include "Cure.hpp"
 
-# include "Animal.hpp"
-# include "Brain.hpp"
-
-class Dog: public Animal
+Cure::Cure( void )
 {
-private:
-	Brain	*brain;
-public:
-	Dog( void );
-	Dog ( const Dog &dog );
-	Dog	&operator=( const Dog &dog );
-	~Dog();
-	void		makeSound( void ) const;
-};
+	this->AMateria::_type = "cure";
+}
 
-#endif
+Cure::Cure( const Cure &c )
+{
+	this->AMateria::_type = c._type;
+}
+
+Cure	&Cure::operator=( const Cure &c )
+{
+	if (this != &c)
+	{
+		this->_type = c._type;
+	}
+	return (*this);
+}
+
+AMateria	*Cure::clone( void ) const
+{
+	return (new Cure( *this ));
+}
+
+void	Cure::use( ICharacter &target )
+{
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
+}
+
+Cure::~Cure()
+{
+}

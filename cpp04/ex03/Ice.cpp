@@ -9,27 +9,42 @@
    \___/     \___|  \___/  /___|    |___/   /_/ \_\  |_|_\  |___|  |_||_|  /_/ \_\  |_|\_|  
 																							
 																							
-  file: Dog.hpp
-  date: 2023-04-13T20:36:58.837Z
+  file: Ice.cpp
+  date: 2023-04-13T23:53:36.334Z
   mail: osarihan@student.42kocaeli.com.tr
  ********************************************************************************************/
 
-#ifndef	DOG_HPP
-# define DOG_HPP
+#include "Ice.hpp"
 
-# include "Animal.hpp"
-# include "Brain.hpp"
-
-class Dog: public Animal
+Ice::Ice( void )
 {
-private:
-	Brain	*brain;
-public:
-	Dog( void );
-	Dog ( const Dog &dog );
-	Dog	&operator=( const Dog &dog );
-	~Dog();
-	void		makeSound( void ) const;
-};
+	this->AMateria::_type = "ice";
+}
 
-#endif
+Ice::Ice( const Ice &i )
+{
+	this->AMateria::_type = i._type;
+}
+
+Ice	&Ice::operator=( const Ice &i )
+{
+	if (this != &i)
+	{
+		this->_type = i._type;
+	}
+	return (*this);
+}
+
+AMateria	*Ice::clone( void ) const
+{
+	return (new Ice( *this ));
+}
+
+void	Ice::use( ICharacter &target )
+{
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+}
+
+Ice::~Ice()
+{
+}

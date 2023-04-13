@@ -9,27 +9,28 @@
    \___/     \___|  \___/  /___|    |___/   /_/ \_\  |_|_\  |___|  |_||_|  /_/ \_\  |_|\_|  
 																							
 																							
-  file: Dog.hpp
-  date: 2023-04-13T20:36:58.837Z
+  file: Ice.hpp
+  date: 2023-04-13T23:53:39.556Z
   mail: osarihan@student.42kocaeli.com.tr
  ********************************************************************************************/
 
-#ifndef	DOG_HPP
-# define DOG_HPP
+#ifndef	ICE_HPP
+# define ICE_HPP
 
-# include "Animal.hpp"
-# include "Brain.hpp"
+# include "AMateria.hpp"
 
-class Dog: public Animal
+class Ice: public AMateria
 {
-private:
-	Brain	*brain;
 public:
-	Dog( void );
-	Dog ( const Dog &dog );
-	Dog	&operator=( const Dog &dog );
-	~Dog();
-	void		makeSound( void ) const;
+	Ice( void );
+	Ice( const Ice &i );
+
+	Ice	&operator=( const Ice &i );
+
+	AMateria	*clone( void ) const;
+	void		use( ICharacter &target );
+
+	~Ice();
 };
 
 #endif

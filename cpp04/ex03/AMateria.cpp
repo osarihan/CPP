@@ -9,27 +9,42 @@
    \___/     \___|  \___/  /___|    |___/   /_/ \_\  |_|_\  |___|  |_||_|  /_/ \_\  |_|\_|  
 																							
 																							
-  file: Dog.hpp
-  date: 2023-04-13T20:36:58.837Z
+  file: AMateria.cpp
+  date: 2023-04-13T20:55:00.295Z
   mail: osarihan@student.42kocaeli.com.tr
  ********************************************************************************************/
 
-#ifndef	DOG_HPP
-# define DOG_HPP
+#include "AMateria.hpp"
 
-# include "Animal.hpp"
-# include "Brain.hpp"
-
-class Dog: public Animal
+AMateria::AMateria( void ): _type("undefined")
 {
-private:
-	Brain	*brain;
-public:
-	Dog( void );
-	Dog ( const Dog &dog );
-	Dog	&operator=( const Dog &dog );
-	~Dog();
-	void		makeSound( void ) const;
-};
+}
 
-#endif
+AMateria::AMateria( std::string	&type ): _type(type)
+{
+}
+
+AMateria::AMateria( const AMateria &a ): _type(a._type)
+{
+}
+
+AMateria::~AMateria()
+{
+}
+
+AMateria	&AMateria::operator=( const AMateria &a )
+{
+	if (this != &a)
+		this->_type = a._type;
+	return (*this);
+}
+
+std::string const	&AMateria::getType( void ) const
+{
+	return (this->_type);
+}
+
+void	AMateria::use( ICharacter &target)
+{
+	(void) target;
+}

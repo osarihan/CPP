@@ -9,27 +9,29 @@
    \___/     \___|  \___/  /___|    |___/   /_/ \_\  |_|_\  |___|  |_||_|  /_/ \_\  |_|\_|  
 																							
 																							
-  file: Dog.hpp
-  date: 2023-04-13T20:36:58.837Z
+  file: ICharacter.hpp
+  date: 2023-04-13T23:53:42.743Z
   mail: osarihan@student.42kocaeli.com.tr
  ********************************************************************************************/
 
-#ifndef	DOG_HPP
-# define DOG_HPP
+#ifndef	ICHARACTER_HPP
+# define ICHARACTER_HPP
 
-# include "Animal.hpp"
-# include "Brain.hpp"
+# include "iostream"
+# include "AMateria.hpp"
 
-class Dog: public Animal
+class AMateria;
+
+class ICharacter
 {
-private:
-	Brain	*brain;
 public:
-	Dog( void );
-	Dog ( const Dog &dog );
-	Dog	&operator=( const Dog &dog );
-	~Dog();
-	void		makeSound( void ) const;
+	virtual ~ICharacter() {}
+
+	virtual	std::string	const	&getName( void ) = 0;
+	virtual	void				equip( AMateria	*m ) = 0;
+	virtual	void				unequip( int	idx ) = 0;
+	virtual	void				use( int idx, ICharacter	&target ) = 0;
+
 };
 
 #endif
