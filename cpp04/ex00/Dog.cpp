@@ -10,41 +10,41 @@
 																							
 																							
   file: Dog.cpp
-  date: 2023-04-11T01:47:15.142Z
+  date: 2023-04-13T19:42:34.889Z
   mail: osarihan@student.42kocaeli.com.tr
  ********************************************************************************************/
 
-#include "Animal.hpp"
 #include "Dog.hpp"
 
-Dog::Dog(){
-	this->type = "dog";
-	std::cout << "Dog class def constructor called" << std::endl;
+Dog::Dog( void )
+{
+	this->Animal::type = "Dog";
+	std::cout << "Dog class default constructor called" << std::endl;
 }
 
-Dog::~Dog(){
-	std::cout << "Dog class def destructor called" << std::endl;
-}
-
-void Dog::makeSound() const{
-	std::cout << "Dog says: BARK!" << std::endl;	
+Dog::~Dog()
+{
+	std::cout << "Dog default destructor called" << std::endl;
 }
 
 Dog::Dog( const Dog &dog )
 {
 	this->Animal::type = dog.type;
-	std::cout << "Dog copy constructor called" << std::endl;
-}
-
-std::string	Dog::getType() const{
-	return (this->type);
+	std::cout << "Dog class copy constructor called" << std::endl;
 }
 
 Dog &Dog::operator=( const Dog &dog )
 {
+	std::cout << "Dog class copy assigment operator called" << std::endl;
 	if (this != &dog)
 	{
 		this->type = dog.type;
 	}
 	return (*this);
+}
+
+
+void	Dog::makeSound( void ) const
+{
+	std::cout << "Bark!" << std::endl;
 }

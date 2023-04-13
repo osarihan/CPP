@@ -1,17 +1,31 @@
-#ifndef WRONGCAT_HPP
-#define WRONGCAT_HPP
+/********************************************************************************************
+	   )                        )     (                (      (         )                )  
+   ( /(    (                ( /(     )\ )     (       )\ )   )\ )   ( /(     (       ( /(   
+   )\())   )\ )        (    )\())   (()/(     )\     (()/(  (()/(   )\())    )\      )\())  
+  ((_)\   (()/(        )\  ((_)\     /(_)) ((((_)(    /(_))  /(_)) ((_)\  ((((_)(   ((_)    
+   ((_)    /(_))_   _ ((_)  _((_)   (_))    )\ _ )\  (_))   (_))    _((_)  )\ _ )\   _((_)  
+   / _ \  (_)) __| | | | | |_  /    / __|   (_)_\(_) | _ \  |_ _|  | || |  (_)_\(_) | \| |  
+  | (_) |   | (_ | | |_| |  / /     \__ \    / _ \   |   /   | |   | __ |   / _ \   | .` |  
+   \___/     \___|  \___/  /___|    |___/   /_/ \_\  |_|_\  |___|  |_||_|  /_/ \_\  |_|\_|  
+																							
+																							
+  file: WrongCat.hpp
+  date: 2023-04-13T19:42:57.257Z
+  mail: osarihan@student.42kocaeli.com.tr
+ ********************************************************************************************/
 
-#include "WrongAnimal.hpp"
+#ifndef	WRONGCAT_HPP
+# define WRONGCAT_HPP
 
-class WrongCat : public WrongAnimal{
+# include "WrongAnimal.hpp"
+
+class WrongCat: public WrongAnimal
+{
 public:
-	WrongCat();
+	WrongCat( void );
+	WrongCat( const WrongCat &wrongcat);
+	WrongCat &operator=( const WrongCat &wrongcat );
 	~WrongCat();
-	WrongCat( const WrongCat &cat );
-
-	WrongCat	&operator=( const WrongCat &cat );
-	void makeSound() const;
-	std::string getType() const;
 };
 
 #endif

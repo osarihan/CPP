@@ -10,28 +10,26 @@
 																							
 																							
   file: Cat.hpp
-  date: 2023-04-11T01:44:01.922Z
+  date: 2023-04-13T19:42:30.649Z
   mail: osarihan@student.42kocaeli.com.tr
  ********************************************************************************************/
 
 #ifndef CAT_HPP
-#define CAT_HPP
+# define CAT_HPP
 
 #include "Animal.hpp"
 
-class Cat : public Animal{
-private:
-
-protected:
-
+class Cat: public Animal
+{
 public:
-	Cat();
-	~Cat();
+	Cat( void );
 	Cat( const Cat &cat );
 
 	Cat	&operator=( const Cat &cat );
-	void makeSound() const;
-	std::string getType() const;
+
+	~Cat();
+
+	void		makeSound( void ) const;
 };
 
 #endif

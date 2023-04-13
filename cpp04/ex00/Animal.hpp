@@ -10,25 +10,26 @@
 																							
 																							
   file: Animal.hpp
-  date: 2023-04-11T01:40:19.005Z
+  date: 2023-04-13T19:42:23.418Z
   mail: osarihan@student.42kocaeli.com.tr
  ********************************************************************************************/
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef	ANIMAL_HPP
+# define ANIMAL_HPP
 
 #include <iostream>
 
-class Animal{
-private:
-
-protected:
-	std::string type;
-public:
-	Animal();
-	virtual ~Animal();
-	std::string getType() const;
-	virtual void makeSound() const;
+class Animal
+{
+	protected:
+		std::string	type;
+	public:
+		Animal( void );
+		Animal( const Animal &animal );
+		Animal	&operator=( const Animal &Animal );
+		virtual ~Animal();
+		virtual void	makeSound( void ) const;
+		std::string		getType( void ) const;
 };
 
 #endif

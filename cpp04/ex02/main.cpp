@@ -19,7 +19,7 @@ int leak_check(){
 
 	for (int i = 0; i < 2 * size; i++)
 		delete arrayAnimals[i];
-	return (1);
+	return (31);
 }
 
 int	main( void )

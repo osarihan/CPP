@@ -10,41 +10,40 @@
 																							
 																							
   file: Cat.cpp
-  date: 2023-04-11T01:44:00.157Z
+  date: 2023-04-13T19:42:27.617Z
   mail: osarihan@student.42kocaeli.com.tr
  ********************************************************************************************/
 
-#include "Animal.hpp"
 #include "Cat.hpp"
 
-Cat::Cat(){
-	this->type = "cat";
-	std::cout << "Cat class def constructor called" << std::endl;
+Cat::Cat( void )
+{
+	this->Animal::type = "Cat";
+	std::cout << "Cat class default constructor called!" << std::endl;
 }
 
-Cat::~Cat(){
-	std::cout << "Cat class def destructor called" << std::endl;
-}
-
-void Cat::makeSound() const{
-	std::cout << "Cat says: MEOW!" << std::endl;	
-}
-
-std::string	Cat::getType() const{
-	return (this->type);
+Cat::~Cat()
+{
+	std::cout << "Cat class default destructor called!" << std::endl;
 }
 
 Cat::Cat( const Cat &cat )
 {
 	this->Animal::type = cat.type;
-	std::cout << "Cat copy constructor called!" << std::endl;
+	std::cout << "Cat class copy constructor called!" << std::endl;
 }
 
 Cat	&Cat::operator=( const Cat &cat )
 {
+	std::cout << "Cat class copy assigment operator called!" << std::endl;
 	if (this != &cat)
 	{
 		this->type = cat.type;
 	}
 	return (*this);
+}
+
+void	Cat::makeSound( void ) const
+{
+	std::cout << "Meow" << std::endl;
 }
