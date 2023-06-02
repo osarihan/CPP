@@ -1,9 +1,25 @@
-#include <Bureaucrat.hpp>
-#include <AForm.hpp>
-#include <ShrubberyCreationForm.hpp>
-#include <RobotomyRequestForm.hpp>
-#include <PresidentialPardonForm.hpp>
-#include <Intern.hpp>
+/********************************************************************************************
+	   )                        )     (                (      (         )                )  
+   ( /(    (                ( /(     )\ )     (       )\ )   )\ )   ( /(     (       ( /(   
+   )\())   )\ )        (    )\())   (()/(     )\     (()/(  (()/(   )\())    )\      )\())  
+  ((_)\   (()/(        )\  ((_)\     /(_)) ((((_)(    /(_))  /(_)) ((_)\  ((((_)(   ((_)    
+   ((_)    /(_))_   _ ((_)  _((_)   (_))    )\ _ )\  (_))   (_))    _((_)  )\ _ )\   _((_)  
+   / _ \  (_)) __| | | | | |_  /    / __|   (_)_\(_) | _ \  |_ _|  | || |  (_)_\(_) | \| |  
+  | (_) |   | (_ | | |_| |  / /     \__ \    / _ \   |   /   | |   | __ |   / _ \   | .` |  
+   \___/     \___|  \___/  /___|    |___/   /_/ \_\  |_|_\  |___|  |_||_|  /_/ \_\  |_|\_|  
+																							
+																							
+  file: main.cpp
+  date: 2023-06-02T10:17:47.454Z
+  mail: osarihan@student.42kocaeli.com.tr
+ ********************************************************************************************/
+
+#include "Bureaucrat.hpp"
+#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int	main( void )
 {
