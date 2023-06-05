@@ -1,78 +1,30 @@
-#include <iostream>
-#include "A.hpp"
-#include "B.hpp"
-#include "C.hpp"
+/********************************************************************************************
+	   )                        )     (                (      (         )                )  
+   ( /(    (                ( /(     )\ )     (       )\ )   )\ )   ( /(     (       ( /(   
+   )\())   )\ )        (    )\())   (()/(     )\     (()/(  (()/(   )\())    )\      )\())  
+  ((_)\   (()/(        )\  ((_)\     /(_)) ((((_)(    /(_))  /(_)) ((_)\  ((((_)(   ((_)    
+   ((_)    /(_))_   _ ((_)  _((_)   (_))    )\ _ )\  (_))   (_))    _((_)  )\ _ )\   _((_)  
+   / _ \  (_)) __| | | | | |_  /    / __|   (_)_\(_) | _ \  |_ _|  | || |  (_)_\(_) | \| |  
+  | (_) |   | (_ | | |_| |  / /     \__ \    / _ \   |   /   | |   | __ |   / _ \   | .` |  
+   \___/     \___|  \___/  /___|    |___/   /_/ \_\  |_|_\  |___|  |_||_|  /_/ \_\  |_|\_|  
+																							
+																							
+  file: main.cpp
+  date: 2023-06-05T14:40:40.822Z
+  mail: osarihan@student.42kocaeli.com.tr
+ ********************************************************************************************/
 
-Base	*generate( void )
+#include "Base.hpp"
+# include "A.hpp"
+# include "B.hpp"
+# include "C.hpp"
+
+int	main(void)
 {
-	srand(time(NULL));
-	int	i = rand() % 3;
+	Base	*obj = Base::generate();
 
-	//std::cout << i << std::endl;
-	switch (i)
-	{
-		case 0:
-			return (new A());
-		case 1:
-			return (new B());
-		case 2:
-			return (new C());
-		default:
-			break;
-	}
-	return (NULL);
-}
-
-void	identify(Base *p)
-{
-	if (dynamic_cast<A*>(p) != NULL)
-		std::cout << "Type of base pointer is A" << std::endl;
-	if (dynamic_cast<B*>(p) != NULL)
-		std::cout << "Type of base is pointer B" << std::endl;
-	if (dynamic_cast<C*>(p) != NULL)
-		std::cout << "Type of base is pointer C" << std::endl;
-}
-
-void	identify(Base &p)
-{
-	try
-	{
-		A &a = dynamic_cast<A&>(p);
-		(void) a;
-		std::cout << "Type of base reference is A" << std::endl;
-		return ;
-	}
-	catch(const std::exception& e)
-	{
-	}
-	try
-	{
-		B &b = dynamic_cast<B&>(p);
-		(void) b;
-		std::cout << "Type of base reference is B" << std::endl;
-		return ;
-	}
-	catch(const std::exception& e)
-	{
-	}
-	try
-	{
-		C &c = dynamic_cast<C&>(p);
-		(void) c;
-		std::cout << "Type of base reference is C" << std::endl;
-		return ;
-	}
-	catch(const std::exception& e)
-	{
-	}		
-}
-
-int	main( void )
-{
-	Base *p = generate();
-
-	identify(p);
-	identify(*p);
-
+	Base::identify(obj);
+	Base::identify(*obj);
+	delete (obj);
 	return (0);
 }

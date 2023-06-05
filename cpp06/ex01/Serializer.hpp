@@ -9,19 +9,30 @@
    \___/     \___|  \___/  /___|    |___/   /_/ \_\  |_|_\  |___|  |_||_|  /_/ \_\  |_|\_|  
 																							
 																							
-  file: C.hpp
-  date: 2023-06-05T14:40:36.598Z
+  file: Serializer.hpp
+  date: 2023-06-05T14:40:01.566Z
   mail: osarihan@student.42kocaeli.com.tr
  ********************************************************************************************/
 
-#ifndef C_HPP
-#define C_HPP
+#ifndef	SERIALIZER_HPP
+#define SERIALIZER_HPP
 
-#include "Base.hpp"
+#include "Data.hpp"
+#include <iostream>
 
-class C: public Base
-{
 
+class Serializer{
+private:
+
+public:
+	/*ortadox*/
+	Serializer();
+	~Serializer();
+	// Serializer(const Serializer &obj);
+
+	/*subject*/
+	uintptr_t serialize(Data* ptr);
+	Data* deserialize(uintptr_t raw);
 };
 
 #endif

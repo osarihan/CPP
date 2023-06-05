@@ -9,19 +9,40 @@
    \___/     \___|  \___/  /___|    |___/   /_/ \_\  |_|_\  |___|  |_||_|  /_/ \_\  |_|\_|  
 																							
 																							
-  file: C.hpp
-  date: 2023-06-05T14:40:36.598Z
+  file: ScalarConverter.hpp
+  date: 2023-06-05T14:39:46.049Z
   mail: osarihan@student.42kocaeli.com.tr
  ********************************************************************************************/
 
-#ifndef C_HPP
-#define C_HPP
+#ifndef SCALAR_CONVERTER_HPP
+# define SCALAR_CONVERTER_HPP
+# include <iostream>
+# include <limits>
+# include <iomanip>
+# include <cmath>
+# include <cstdio>
 
-#include "Base.hpp"
+class ScalarConverter {
+    private:
 
-class C: public Base
-{
+    public:
+        /*ortadox*/
+		ScalarConverter();
+		~ScalarConverter();
+        ScalarConverter(const ScalarConverter &obj);
+    
+        /*subject*/
+		static void convert(std::string arg);
+		static int checker(std::string str);
+		static void pseudoPrinter(std::string str);
+		static void print(int b, float c, double d);
+		static void printImpossible(void);
 
+		static void convertChar(char i);
+		static void convertInt(int i);
+		static void convertFloat(float i);
+		static void convertDouble(double i);
 };
+
 
 #endif

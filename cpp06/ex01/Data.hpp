@@ -1,27 +1,28 @@
-#ifndef	DATA_HPP
-# define DATA_HPP
+/********************************************************************************************
+	   )                        )     (                (      (         )                )  
+   ( /(    (                ( /(     )\ )     (       )\ )   )\ )   ( /(     (       ( /(   
+   )\())   )\ )        (    )\())   (()/(     )\     (()/(  (()/(   )\())    )\      )\())  
+  ((_)\   (()/(        )\  ((_)\     /(_)) ((((_)(    /(_))  /(_)) ((_)\  ((((_)(   ((_)    
+   ((_)    /(_))_   _ ((_)  _((_)   (_))    )\ _ )\  (_))   (_))    _((_)  )\ _ )\   _((_)  
+   / _ \  (_)) __| | | | | |_  /    / __|   (_)_\(_) | _ \  |_ _|  | || |  (_)_\(_) | \| |  
+  | (_) |   | (_ | | |_| |  / /     \__ \    / _ \   |   /   | |   | __ |   / _ \   | .` |  
+   \___/     \___|  \___/  /___|    |___/   /_/ \_\  |_|_\  |___|  |_||_|  /_/ \_\  |_|\_|  
+																							
+																							
+  file: Data.hpp
+  date: 2023-06-05T14:39:50.852Z
+  mail: osarihan@student.42kocaeli.com.tr
+ ********************************************************************************************/
 
-# include <iostream>
+#ifndef DATA_HPP
+#define DATA_HPP
 
-class Data
+#include <iostream>
+
+struct Data
 {
-private:
-	std::string	_s;
-	int			_i;
-public:
-	Data( void );
-	Data( Data &d );
-	Data( std::string s, int i );
-
-	~Data( void );
-
-	Data		&operator=( Data &d );
-
-	uintptr_t	serialize( Data *ptr );
-
-	std::string	getS();
-	int			getI();
+	int a;
 };
 
-# endif
 
+#endif

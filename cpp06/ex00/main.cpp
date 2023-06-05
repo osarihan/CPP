@@ -1,14 +1,30 @@
-#include "Convert.hpp"
+/********************************************************************************************
+       )                        )     (                (      (         )                )  
+   ( /(    (                ( /(     )\ )     (       )\ )   )\ )   ( /(     (       ( /(   
+   )\())   )\ )        (    )\())   (()/(     )\     (()/(  (()/(   )\())    )\      )\())  
+  ((_)\   (()/(        )\  ((_)\     /(_)) ((((_)(    /(_))  /(_)) ((_)\  ((((_)(   ((_)    
+   ((_)    /(_))_   _ ((_)  _((_)   (_))    )\ _ )\  (_))   (_))    _((_)  )\ _ )\   _((_)  
+   / _ \  (_)) __| | | | | |_  /    / __|   (_)_\(_) | _ \  |_ _|  | || |  (_)_\(_) | \| |  
+  | (_) |   | (_ | | |_| |  / /     \__ \    / _ \   |   /   | |   | __ |   / _ \   | .` |  
+   \___/     \___|  \___/  /___|    |___/   /_/ \_\  |_|_\  |___|  |_||_|  /_/ \_\  |_|\_|  
+                                                                                            
+                                                                                            
+  file: main.cpp
+  date: 2023-06-05T14:39:34.015Z
+  mail: osarihan@student.42kocaeli.com.tr
+ ********************************************************************************************/
 
-int	main( int argc, char **argv )
-{
-	if	(argc != 2)
-	{
-		std::cout << "Error: Wrong number of arguments" << std::endl;
-		return (0);
-	}
-	std::string	toConvert = argv[1];
-	Convert	c(toConvert);
+#include "ScalarConverter.hpp"
 
-	c.convert();
+int main(int argc, char **argv) {
+
+    try {
+        if (argc != 2)
+            throw std::exception();
+        std::string s = argv[1];
+        ScalarConverter::convert(s);
+    }
+    catch(std::exception & e) {
+        std::cout << "Error!\nWrong number of arguments passed" << std::endl;
+    }
 }

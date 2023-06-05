@@ -1,24 +1,38 @@
+/********************************************************************************************
+	   )                        )     (                (      (         )                )  
+   ( /(    (                ( /(     )\ )     (       )\ )   )\ )   ( /(     (       ( /(   
+   )\())   )\ )        (    )\())   (()/(     )\     (()/(  (()/(   )\())    )\      )\())  
+  ((_)\   (()/(        )\  ((_)\     /(_)) ((((_)(    /(_))  /(_)) ((_)\  ((((_)(   ((_)    
+   ((_)    /(_))_   _ ((_)  _((_)   (_))    )\ _ )\  (_))   (_))    _((_)  )\ _ )\   _((_)  
+   / _ \  (_)) __| | | | | |_  /    / __|   (_)_\(_) | _ \  |_ _|  | || |  (_)_\(_) | \| |  
+  | (_) |   | (_ | | |_| |  / /     \__ \    / _ \   |   /   | |   | __ |   / _ \   | .` |  
+   \___/     \___|  \___/  /___|    |___/   /_/ \_\  |_|_\  |___|  |_||_|  /_/ \_\  |_|\_|  
+																							
+																							
+  file: main.cpp
+  date: 2023-06-05T14:39:55.918Z
+  mail: osarihan@student.42kocaeli.com.tr
+ ********************************************************************************************/
+
 #include <iostream>
 #include "Data.hpp"
+#include "Serializer.hpp"
 
-Data	*deserialize(uintptr_t	raw)
+// uintptr_t--> işaretçilerin tam sayılarla işlem yapılabilmesini sağlar
+// reinterpret_cast: Her türlü gösterici türünü  her türlü  gösterici türüne çevirebilir. Bilinçsiz kullanımı kesinlikle tavsiye edilmez. Aslında basit olarak
+// göstericinin diğer göstericiye binary olarak kopyalanmasıdır.
+
+int main(void)
 {
-	return (reinterpret_cast<Data *>(raw));
-}
+	Data d;
+	Data *newPtr = NULL;
+	uintptr_t raw;
+	Serializer serilize;
 
-int	main( int argc, char **argv )
-{
-	(void) argc;
-	(void) argv;
-	Data	*data = new Data("HOLA", 42);
+	d.a = 10;
+	raw = serilize.serialize(&d);
+	newPtr = serilize.deserialize(raw);
 
-	std::cout << "Data pointer data has a string with value: " << data->getS() << ", and a int with value: " << data->getI() << std::endl;
-
-	std::cout << "Calling serialize function..." << std::endl;
-	uintptr_t	u = data->serialize(data);
-	
-	std::cout << "Calling deserialize function..." << std::endl;
-	Data	*newData = deserialize(u);
-
-	std::cout << "Data pointer newData has a string with value: " << newData->getS() << ", and a int with value: " << newData->getI() << std::endl;
+	std::cout << raw << std::endl;
+	std::cout << newPtr->a << std::endl;
 }

@@ -9,19 +9,30 @@
    \___/     \___|  \___/  /___|    |___/   /_/ \_\  |_|_\  |___|  |_||_|  /_/ \_\  |_|\_|  
 																							
 																							
-  file: C.hpp
-  date: 2023-06-05T14:40:36.598Z
+  file: Serializer.cpp
+  date: 2023-06-05T14:39:58.678Z
   mail: osarihan@student.42kocaeli.com.tr
  ********************************************************************************************/
 
-#ifndef C_HPP
-#define C_HPP
+#include "Serializer.hpp"
+#include "Data.hpp"
 
-#include "Base.hpp"
+Serializer::Serializer(){
 
-class C: public Base
-{
+}
 
-};
+Serializer::~Serializer(){
 
-#endif
+}
+
+// Serializer::Serializer(const Serializer &obj){
+
+// }
+
+uintptr_t	Serializer::serialize(Data* ptr){
+	return (reinterpret_cast<uintptr_t>(ptr));
+}
+
+Data*	Serializer::deserialize(uintptr_t raw){
+	return (reinterpret_cast<Data*>(raw));
+}
