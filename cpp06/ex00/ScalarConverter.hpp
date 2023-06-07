@@ -30,6 +30,7 @@ class ScalarConverter {
 		ScalarConverter();
 		~ScalarConverter();
         ScalarConverter(const ScalarConverter &obj);
+        ScalarConverter &operator=( const ScalarConverter &b);
     
         /*subject*/
 		static void convert(std::string arg);

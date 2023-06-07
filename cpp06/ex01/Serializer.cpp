@@ -25,9 +25,14 @@ Serializer::~Serializer(){
 
 }
 
-// Serializer::Serializer(const Serializer &obj){
+Serializer  &Serializer::operator=( const Serializer &obj){
+    (void)obj;
+    return (*this);
+}
 
-// }
+Serializer::Serializer(const Serializer &obj){
+    (void)obj;
+}
 
 uintptr_t	Serializer::serialize(Data* ptr){
 	return (reinterpret_cast<uintptr_t>(ptr));

@@ -28,9 +28,11 @@ public:
 	/*ortadox*/
 	Serializer();
 	~Serializer();
-	// Serializer(const Serializer &obj);
 
-	/*subject*/
+	Serializer(const Serializer &obj);
+    Serializer &operator=(const Serializer &obj);
+	
+    /*subject*/
 	uintptr_t serialize(Data* ptr);
 	Data* deserialize(uintptr_t raw);
 };

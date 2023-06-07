@@ -23,6 +23,15 @@
 // "+inf": Pozitif sonsuzluk değeri (double türünde).
 // "nan": Double türünde "not-a-number" (NaN) değeri.
 
+ScalarConverter::ScalarConverter(const ScalarConverter &obj){
+	(void)obj;
+}
+
+ScalarConverter &ScalarConverter::operator=( const ScalarConverter &b){
+	(void)b;
+	return(*this);
+}
+
 ScalarConverter::ScalarConverter(){}
 
 ScalarConverter::~ScalarConverter(){}
