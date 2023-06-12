@@ -14,6 +14,9 @@
   mail: osarihan@student.42kocaeli.com.tr
  ********************************************************************************************/
 
+#ifndef MUTANTSTACK_HPP
+#define MUTANTSTACK_HPP
+
 #include <stack>
 #include <deque>
 #include <iostream>
@@ -21,6 +24,18 @@
 template<typename T, typename Container = std::deque<T> >
 class MutantStack : public std::stack<T, Container> {
 public:
+    /*ortadox*/
+    MutantStack() {};
+    ~MutantStack() {};
+    MutantStack(const MutantStack &obj) {
+        *this = obj;
+    };
+    MutantStack &operator=(const MutantStack &obj) {
+        (void)obj;
+        return (*this);
+    };
+
+    /*subject*/
     typedef typename Container::iterator iterator;
     typedef typename Container::const_iterator const_iterator;
 
@@ -28,23 +43,25 @@ public:
         return std::stack<T, Container>::c.begin();
     }
 
-    const_iterator begin() const {
-        return std::stack<T, Container>::c.begin();
-    }
-
-    const_iterator cbegin() const {
-        return std::stack<T, Container>::c.begin();
-    }
-
     iterator end() {
         return std::stack<T, Container>::c.end();
+    }
+
+    const_iterator begin() const {
+        return std::stack<T, Container>::c.begin();
     }
 
     const_iterator end() const {
         return std::stack<T, Container>::c.end();
     }
 
+    const_iterator cbegin() const {
+        return std::stack<T, Container>::c.begin();
+    }
+
     const_iterator cend() const {
         return std::stack<T, Container>::c.end();
     }
 };
+
+#endif

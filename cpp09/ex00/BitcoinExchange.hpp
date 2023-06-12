@@ -9,37 +9,49 @@
    \___/     \___|  \___/  /___|    |___/   /_/ \_\  |_|_\  |___|  |_||_|  /_/ \_\  |_|\_|  
 																							
 																							
-  file: span.hpp
-  date: 2023-06-09T10:06:12.803Z
+  file: BitcoinExchange.hpp
+  date: 2023-06-12T10:24:47.329Z
   mail: osarihan@student.42kocaeli.com.tr
  ********************************************************************************************/
 
-#ifndef SPAN_HPP
-#define SPAN_HPP
+#ifndef BITCOINEXCHANGE_HPP
+#define BITCOINEXCHANGE_HPP
 
-#include <vector>
 #include <iostream>
 #include <algorithm>
-#include <stdexcept>
+#include <fstream>
+#include <string>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <vector>
 
-class Span{
+class BitcoinExchange{
 private:
-	unsigned int _N;
-	std::vector<int> _numbers;
+	
 public:
-
     /*ortadox*/
-	Span();
-	~Span();
-    Span(const Span &val);
-    Span &operator=(const Span &obj);
+    BitcoinExchange();
+    // ~BitcoinExchange();
+    // BitcoinExchange &operator=(BitcoinExchange &obj);
+    // BitcoinExchange(BitcoinExchange &obj);
 
     /*subject*/
-	Span(unsigned int N);
-	void addNumber(int number);
-    void addNumbers(int val);
-	int shortestSpan();
-	int longestSpan();
+    float btc;
+    float exrate;
+
+    std::string line;
+
+    std::ifstream input;
+    std::ifstream data;
+
+	std::vector<std::string> con;
+	std::vector<std::string> btcdata;
+
+    char *_av;
+
+    int Exchange(void);
+    int FileCheck(void);
 };
 
 #endif

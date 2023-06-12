@@ -25,7 +25,7 @@ int main() {
 	// sp.addNumber(9); 
 	// sp.addNumber(11);
     
-    sp.addNumber();
+    sp.addNumbers(1000);
 
 	std::cout << sp.shortestSpan() << std::endl; 
 	std::cout << sp.longestSpan() << std::endl;

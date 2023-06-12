@@ -24,6 +24,17 @@ Span::~Span(){
 	std::cout << "dest called" << std::endl;
 }
 
+Span::Span(const Span &val){
+	std::cout << "copy constructor called" << std::endl;
+	(void)val;
+}
+
+Span &Span::operator=(const Span &obj){
+	std::cout << "copy assigment operator called" << std::endl;
+	(void)obj;
+	return (*this);
+}
+
 Span::Span(unsigned int N) : _N(N){}
 
 void Span::addNumber(int number){
@@ -53,12 +64,16 @@ int Span::longestSpan(){
 	return (_numbers[_numbers.size() - 1] - _numbers[0]);
 }
 
-template<typename T>
 void Span::addNumbers(int val){
 	int i = 0;
 	int rnd = 0;
+	srand(time(0));
 	while (i < val){
 		rnd = rand();
+		if (_numbers.size() == _N){
+			throw std::runtime_error("Span is already full!");
+		}
+		_numbers.push_back(rnd);
 		i++;
 	}
 }
