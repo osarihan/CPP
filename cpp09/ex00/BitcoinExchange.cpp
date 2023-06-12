@@ -20,24 +20,19 @@ int BitcoinExchange::Exchange(){
 	std::vector<std::string>::iterator itIn = con.begin();
 	std::vector<std::string>::iterator itData = btcdata.begin();
 	std::vector<std::string>::iterator tempIt = con.begin();
-	while (itIn != con.end())
-	{
-			while (itData != btcdata.end())
-			{
-				if ((*itIn).substr(0,3) == "Err")
-				{
+	while (itIn != con.end()){
+			while (itData != btcdata.end()){
+				if ((*itIn).substr(0,3) == "Err"){
 					std::cout << *itIn << std::endl;
 					break;
 				}
-				else if (atoi((*itIn).substr(0,8).c_str()) == atoi((*itData).substr(0,8).c_str()))
-				{
+				else if (atoi((*itIn).substr(0,8).c_str()) == atoi((*itData).substr(0,8).c_str())){
 					btc = atof((*itIn).substr(10, strlen((*itIn).c_str()) - 8).c_str());
 					exrate = atof((*itData).substr(8, strlen((*itData).c_str()) - 8).c_str());
 					std::cout << (*itIn).substr(0,4) << "-" << (*itIn).substr(4,2) << "-" << (*itIn).substr(6,2) << " => " << btc << " = " << exrate * btc << std::endl;
 					break;
 				}
-				else if (atoi((*itIn).substr(0,8).c_str()) < atoi((*itData).substr(0,8).c_str()))
-				{
+				else if (atoi((*itIn).substr(0,8).c_str()) < atoi((*itData).substr(0,8).c_str())){
 					btc = atof((*itIn).substr(10, strlen((*itIn).c_str()) - 8).c_str());
 					exrate = atof((*tempIt).substr(8, strlen((*tempIt).c_str()) - 8).c_str());
 					std::cout << (*itIn).substr(0,4) << "-" << (*itIn).substr(4,2) << "-" << (*itIn).substr(6,2) << " => " << btc << " = " << exrate * btc << std::endl;
@@ -113,18 +108,15 @@ BitcoinExchange::BitcoinExchange(){
 	char *pstr;
 
 	data.open("data.csv");
-	if (!data.is_open())
-	{
+	if (!data.is_open()){
 		std::cout << "data.csv file could not be opened !" << std::endl;
 		exit(1);
 	}
 	std::getline(data, line);
-	while (std::getline(data, line))
-	{
+	while (std::getline(data, line)){
 			tmp = line;
 			pstr = strtok((char *)line.c_str(), "-,");
-			while (pstr != NULL)
-			{
+			while (pstr != NULL){
 				res += pstr;
 				if (i == 4)
 					btcdata.push_back(res);
