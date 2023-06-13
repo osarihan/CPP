@@ -134,10 +134,11 @@ BitcoinExchange::BitcoinExchange(){
 /*ORTADOX*/
 
 BitcoinExchange::~BitcoinExchange(){
-	std::cout << "dest called" << std::endl;
+	//std::cout << "dest called" << std::endl;
 }
 
 BitcoinExchange &BitcoinExchange::operator=(BitcoinExchange &obj){
+	(void)obj;
 	return (*this);
 }
 

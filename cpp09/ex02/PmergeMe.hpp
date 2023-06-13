@@ -9,51 +9,46 @@
    \___/     \___|  \___/  /___|    |___/   /_/ \_\  |_|_\  |___|  |_||_|  /_/ \_\  |_|\_|  
 																							
 																							
-  file: BitcoinExchange.hpp
-  date: 2023-06-12T10:24:47.329Z
+  file: PmergeMe.hpp
+  date: 2023-06-13T10:10:35.582Z
   mail: osarihan@student.42kocaeli.com.tr
  ********************************************************************************************/
 
-#ifndef BITCOINEXCHANGE_HPP
-#define BITCOINEXCHANGE_HPP
-
 #include <iostream>
-#include <algorithm>
-#include <fstream>
 #include <string>
+#include <deque>
+#include <map>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <vector>
+#include <time.h>
+#include <cctype> //isdigit
 
-//strtok
-
-class BitcoinExchange{
-private:
-	
-public:
-    /*ortadox*/
-    BitcoinExchange();
-    ~BitcoinExchange();
-    BitcoinExchange &operator=(BitcoinExchange &obj);
-    BitcoinExchange(BitcoinExchange &obj);
-
-    /*subject*/
-    float btc;
-    float exrate;
-
-    std::string line;
-
-    std::ifstream input;
-    std::ifstream data;
-
-	std::vector<std::string> con;
-	std::vector<std::string> btcdata;
-
-    char *_av;
-
-    int Exchange(void);
-    int FileCheck(void);
+class PmergeMeDeque
+{
+	public:
+		PmergeMeDeque();
+		~PmergeMeDeque();
+		PmergeMeDeque(const PmergeMeDeque &obj);
+		PmergeMeDeque &operator=(const PmergeMeDeque &obj);
+		std::deque<int> con;
+		std::deque<int>::iterator it;
+		void	addToDeq(std::deque<int> &con,char **argv);
+		void	mergeDeq(std::deque<int>& deq, int left, int middle, int right);
+		void	mergeSortDeq(std::deque<int>& deq, int left, int right);
 };
 
-#endif
+class PmergeMeMap
+{
+	public:
+		PmergeMeMap();
+		~PmergeMeMap();
+		PmergeMeMap(const PmergeMeMap &obj);
+		PmergeMeMap &operator=(const PmergeMeMap &obj);
+		std::map<int,int> con;
+		std::map<int,int>::iterator it;
+		void	addToMap(std::map<int,int> &con,char **argv);
+		void	mergeMap(std::map<int,int>& map, int left, int middle, int right);
+		void	mergeSortMap(std::map<int, int>& map, int left, int right);
+};
+
+bool ft_isdigit(char *arg);
