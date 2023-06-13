@@ -32,9 +32,9 @@ private:
 public:
     /*ortadox*/
     BitcoinExchange();
-    // ~BitcoinExchange();
-    // BitcoinExchange &operator=(BitcoinExchange &obj);
-    // BitcoinExchange(BitcoinExchange &obj);
+    ~BitcoinExchange();
+    BitcoinExchange &operator=(BitcoinExchange &obj);
+    BitcoinExchange(BitcoinExchange &obj);
 
     /*subject*/
     float btc;

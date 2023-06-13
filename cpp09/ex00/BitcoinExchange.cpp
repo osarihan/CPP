@@ -16,6 +16,7 @@
 
 #include "BitcoinExchange.hpp"
 
+/*SUBJECT*/
 int BitcoinExchange::Exchange(){
 	std::vector<std::string>::iterator itIn = con.begin();
 	std::vector<std::string>::iterator itData = btcdata.begin();
@@ -129,3 +130,17 @@ BitcoinExchange::BitcoinExchange(){
 	line.clear();
 }
 
+
+/*ORTADOX*/
+
+BitcoinExchange::~BitcoinExchange(){
+	std::cout << "dest called" << std::endl;
+}
+
+BitcoinExchange &BitcoinExchange::operator=(BitcoinExchange &obj){
+	return (*this);
+}
+
+BitcoinExchange::BitcoinExchange(BitcoinExchange &obj){
+	*this = obj;
+}
