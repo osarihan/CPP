@@ -79,11 +79,12 @@ void RPN::checkArg(char *arg)
 {
 	int i = 0;
 	_token = 0;
+	_pushed = 0;
 	while (arg[i])
 	{
 		if (isToken(arg[i]))
 		{
-			_token = 1;
+			_token++;
 			if (st.size() < 2)
 			{
 				std::cout << "Error" << std::endl;
@@ -95,8 +96,11 @@ void RPN::checkArg(char *arg)
 			st.pop();
 			st.push(calculator(first, second, arg[i]));
 		}
-		else if (isdigit(arg[i]))
+		else if (isdigit(arg[i])){
+			//std::cout << "argc[i]" << arg[i] << std::endl;
 			st.push(arg[i] - 48);
+			_pushed++;
+		}
 		else if (arg[i] != 32)
 		{
 			std::cout << "Error" << std::endl;
@@ -104,8 +108,15 @@ void RPN::checkArg(char *arg)
 		}
 		i++;
 	}
-	if (_token == 1)
-		std::cout << st.top() << std::endl;
-	else
+	if (_token > 1 && _token + 1 != _pushed){
+		//std::cout << _token << " " << _pushed << std::endl;
 		std::cerr << "NO TOKEN!" << std::endl;
+	}
+	else if (_token == 1 && _token + 1 != _pushed){
+		std::cerr << "NO TOKEN!" << std::endl;
+	}
+	else if (_token == 0)
+		std::cerr << "NO TOKEN!" << std::endl;
+	else
+		std::cout << st.top() << std::endl;
 }

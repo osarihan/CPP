@@ -39,6 +39,7 @@ public:
 	int first;
 	int second;
 	int _token;
+	int _pushed;
 	void	checkArg(char *arg);
 	bool	isToken(char c);
 	int		calculator(int first, int second, int op);

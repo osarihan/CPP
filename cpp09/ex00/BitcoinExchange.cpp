@@ -115,15 +115,15 @@ BitcoinExchange::BitcoinExchange(){
 	}
 	std::getline(data, line);
 	while (std::getline(data, line)){
-			tmp = line;
-			pstr = strtok((char *)line.c_str(), "-,");
-			while (pstr != NULL){
-				res += pstr;
-				if (i == 4)
-					btcdata.push_back(res);
-				pstr = strtok(NULL, "-,");
-				i++;
-			}
+		tmp = line;
+		pstr = strtok((char *)line.c_str(), "-,");
+		while (pstr != NULL){
+			res += pstr;
+			if (i == 4)
+				btcdata.push_back(res);
+			pstr = strtok(NULL, "-,");
+			i++;
+		}
 		res.clear();
 		i = 1;
 	}
